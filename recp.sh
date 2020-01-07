@@ -22,8 +22,7 @@ fi
 for i in $*
     do   
         #extension--拓展名, ${i##*.}为获取文件拓展名
-        extension=${i##*.} 
-        echo $extension;
+        extension=${i##*.}; 
 
         #case根据拓展名加相应的注释
         case $extension in 
@@ -40,7 +39,7 @@ for i in $*
             ;;
 
             *)  
-            echo "Not found $i file"
+            echo "Not support $extension file to re-copy"
             ;; 
         esac 
         #每次判断完就获取相应文件的内容 
