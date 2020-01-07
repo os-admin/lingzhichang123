@@ -8,15 +8,19 @@ fi
 #判断系统类型
 os=`uname -s`
 
-if [ "$os" = "Linux" ];
-then 
+case $os in 
+    Linux)
     stickType="xclip -sel clip"
-fi
+    ;;
 
-if [ "$os" = "MacOS" ];
-then
+    MacOS)
     stickType="pbcopy"
-fi
+    ;;
+    *)
+	echo -e "OS '$os' not suppose yet"
+	exit 1;
+esac  
+
 
 #循环判断命令后面的参数且给出相应的注释 ,最后输出到相应系统的剪贴板上
 for i in $*
@@ -44,6 +48,7 @@ for i in $*
         esac 
         #每次判断完就获取相应文件的内容 
         cat $i 
+        echo ;
 
     done | $stickType
 
