@@ -43,7 +43,7 @@ for i in $*
             ;; 
         esac 
         #每次判断完就获取相应文件的内容 
-        cat $i
+        cat $i 
 
     done | $stickType
 
